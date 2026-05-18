@@ -1,134 +1,361 @@
 
-<!-- Sticky Apply Banner -->
-<div id="stickyBanner" role="banner" tabindex="0" aria-label="Start Learning">
-  <a href="#tutorials" class="focus:outline-none focus:ring-2 focus:ring-white">
-    Start Learning
-  </a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnHub</title>
 
-<!-- Welcome Banner -->
-<header class="bg-blue-600 text-white text-center py-20 rounded mb-6">
-  <h2 class="text-4xl font-bold mb-4">Welcome to LearnHub</h2>
+  <link rel="icon" href="https://lh3.googleusercontent.com/a-/ALV-UjWCtL3Rh5hwiwBFawwa694i1z9U1WRcqp_Uj2zjKdBQTY99uHw=s120-p-k-rw-no" type="image/png" />
 
-  <p class="text-lg mb-6">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f3f4f6;
+      color: #1f2937;
+    }
+
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 4rem;
+      background: white;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+      padding-top: 5rem;
+      z-index: 50;
+      transition: width 0.3s ease;
+      overflow: hidden;
+    }
+
+    #sidebar.expanded {
+      width: 16rem;
+    }
+
+    #sidebarToggle {
+      position: fixed;
+      top: 1rem;
+      left: 0;
+      width: 4rem;
+      height: 4rem;
+      background: #2563eb;
+      color: white;
+      border: none;
+      cursor: pointer;
+      z-index: 60;
+      border-radius: 0 12px 12px 0;
+    }
+
+    #sidebar nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #sidebar nav ul li {
+      padding: 1rem;
+    }
+
+    #sidebar nav ul li a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    #sidebar nav ul li a:hover {
+      color: #2563eb;
+    }
+
+    .menu-icon {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      color: #2563eb;
+    }
+
+    #sidebar:not(.expanded) .text-label {
+      display: none;
+    }
+
+    #mainContent {
+      margin-left: 5rem;
+      transition: margin-left 0.3s ease;
+      padding: 1rem;
+    }
+
+    #sidebar.expanded ~ #mainContent {
+      margin-left: 17rem;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .bg-white {
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .bg-white:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    button {
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37,99,235,0.25);
+    }
+
+    input, textarea, select {
+      transition: 0.3s ease;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 10px rgba(37,99,235,0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+<button id="sidebarToggle">❯</button>
+
+<aside id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="#tutorials">
+          <span class="menu-icon">🎓</span>
+          <span class="text-label">Tutorials</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#projects">
+          <span class="menu-icon">💻</span>
+          <span class="text-label">Projects</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#achievements-goals">
+          <span class="menu-icon">🏆</span>
+          <span class="text-label">Achievements</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#certificates">
+          <span class="menu-icon">📜</span>
+          <span class="text-label">Certificates</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#contact">
+          <span class="menu-icon">📞</span>
+          <span class="text-label">Contact</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+<div id="mainContent">
+
+<nav class="bg-white shadow mb-4 rounded-xl">
+  <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+    <h1 class="text-3xl font-bold">LearnHub</h1>
+
+    <div class="space-x-6 hidden md:flex">
+      <a href="#">Home</a>
+      <a href="#tutorials">Tutorials</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="text-white text-center py-24 mb-8">
+  <h2 class="text-5xl font-bold mb-6">Welcome to LearnHub</h2>
+
+  <p class="text-xl mb-8">
     Empowering future technologists through hands-on learning and innovation.
   </p>
 
   <div class="space-x-4">
-    <a href="#tutorials" class="bg-white text-blue-600 font-bold py-2 px-4 rounded">
+    <a href="#tutorials" class="bg-white text-blue-600 font-bold py-3 px-6 rounded-xl inline-block">
       Start Learning
     </a>
 
-    <a href="#projects" class="bg-blue-800 text-white font-bold py-2 px-4 rounded">
+    <a href="#projects" class="bg-blue-900 text-white font-bold py-3 px-6 rounded-xl inline-block">
       Browse Projects
     </a>
   </div>
 </header>
 
-<!-- My Learning Journey -->
-<section id="internship" class="mb-20 max-w-6xl mx-auto px-4">
-  <h2 class="text-3xl font-bold mb-4">My Learning Journey</h2>
-
-  <p class="mb-4">
-    Explore my learning journey, projects, and technical skills in web development,
-    programming, and software technologies.
-  </p>
-
-  <ul class="list-disc list-inside mb-4 text-gray-700">
-    <li>Learning modern web development technologies.</li>
-    <li>Building real-world software projects.</li>
-    <li>Improving problem-solving and coding skills.</li>
-  </ul>
-
-  <a href="#team-join"
-     class="inline-block bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700 transition">
-    Explore Interests
-  </a>
+<section class="max-w-4xl mx-auto mb-16">
+  <input type="text"
+         placeholder="Search tutorials or projects..."
+         class="w-full p-4 border border-gray-300 rounded-xl bg-white">
 </section>
 
-<!-- Achievements & Goals -->
-<section id="achievements-goals" class="mb-20 max-w-6xl mx-auto px-4">
-  <h2 class="text-3xl font-bold mb-4">Achievements & Goals</h2>
+<section class="max-w-6xl mx-auto mb-20" id="tutorials">
+  <h2 class="text-4xl font-bold mb-8">Featured Tutorials</h2>
 
-  <p class="mb-4">
-    I continuously work on improving my technical knowledge through projects,
-    coding practice, and learning modern technologies.
-  </p>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-  <p class="mb-4">
-    My goal is to build strong software development and data science skills
-    while gaining real-world experience through hands-on projects.
-  </p>
+    <div class="bg-white p-6 shadow">
+      <h3 class="text-2xl font-bold mb-3">Java Basics</h3>
+      <p class="mb-4">Learn the fundamentals of Java programming.</p>
 
-  <ul class="list-disc list-inside text-gray-700 mb-4">
-    <li>Improving programming and development skills.</li>
-    <li>Building impactful real-world projects.</li>
-    <li>Learning modern software technologies.</li>
-  </ul>
+      <a href="https://www.learnjavaonline.org/" target="_blank">
+        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg">
+          Start Tutorial
+        </button>
+      </a>
+    </div>
+
+    <div class="bg-white p-6 shadow">
+      <h3 class="text-2xl font-bold mb-3">Python for Data Science</h3>
+      <p class="mb-4">Dive into Python and explore data analysis.</p>
+
+      <a href="https://www.kaggle.com/learn/python" target="_blank">
+        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg">
+          Start Tutorial
+        </button>
+      </a>
+    </div>
+
+    <div class="bg-white p-6 shadow">
+      <h3 class="text-2xl font-bold mb-3">Advanced C++ Concepts</h3>
+      <p class="mb-4">Master object-oriented programming and STL in C++.</p>
+
+      <a href="https://www.learncpp.com/" target="_blank">
+        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg">
+          Start Tutorial
+        </button>
+      </a>
+    </div>
+  </div>
 </section>
 
-<!-- Certificates -->
-<section id="certificates" class="mb-20 max-w-6xl mx-auto px-4">
-  <h2 class="text-3xl font-bold mb-4">Certificates</h2>
+<section id="projects" class="max-w-6xl mx-auto mb-20">
+  <h2 class="text-4xl font-bold mb-8">Projects</h2>
 
-  <p class="mb-4">
-    I regularly complete certifications and hands-on learning programs
-    to strengthen my skills in programming, web development,
-    and software technologies.
-  </p>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-  <p class="mb-4">
-    I continuously improve my technical knowledge by completing courses,
-    certifications, and hands-on projects in programming and software technologies.
-  </p>
+    <div class="bg-white p-6 shadow">
+      <h3 class="text-2xl font-bold mb-3">FreeCodeCamp Projects</h3>
+      <p class="mb-4">Hands-on projects for web development and programming.</p>
+
+      <a href="https://www.freecodecamp.org/learn" target="_blank">
+        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg">
+          Explore
+        </button>
+      </a>
+    </div>
+
+    <div class="bg-white p-6 shadow">
+      <h3 class="text-2xl font-bold mb-3">GitHub Awesome</h3>
+      <p class="mb-4">Discover curated open-source project collections.</p>
+
+      <a href="https://github.com/sindresorhus/awesome" target="_blank">
+        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg">
+          Explore
+        </button>
+      </a>
+    </div>
+
+    <div class="bg-white p-6 shadow">
+      <h3 class="text-2xl font-bold mb-3">The Odin Project</h3>
+      <p class="mb-4">Build full-stack projects with guided curriculum.</p>
+
+      <a href="https://www.theodinproject.com/projects" target="_blank">
+        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg">
+          Explore
+        </button>
+      </a>
+    </div>
+  </div>
 </section>
 
-<!-- Career Interests -->
-<section id="team-join" class="mb-20 max-w-6xl mx-auto px-4">
-  <h2 class="text-3xl font-bold mb-4">Career Interests</h2>
+<section id="about" class="max-w-6xl mx-auto mb-20">
+  <h2 class="text-4xl font-bold mb-6">About LearnHub</h2>
 
-  <p class="mb-4">
-    I am interested in software development, web technologies,
-    data science, and modern technical innovations.
-  </p>
+  <div class="bg-white p-8 shadow">
+    <p class="text-lg leading-8">
+      LearnHub is a modern learning platform designed to help students improve their
+      technical skills through tutorials, projects, certifications, and hands-on learning.
+    </p>
+  </div>
+</section>
 
-  <p class="mb-4">
-    My goal is to continuously improve my technical skills
-    and build impactful projects.
-  </p>
+<section id="achievements-goals" class="max-w-6xl mx-auto mb-20">
+  <h2 class="text-4xl font-bold mb-6">Achievements & Goals</h2>
 
-  <form class="bg-white p-6 rounded shadow-md max-w-lg"
+  <div class="bg-white p-8 shadow">
+    <ul class="list-disc list-inside space-y-3 text-lg">
+      <li>Improving programming and development skills.</li>
+      <li>Building impactful real-world projects.</li>
+      <li>Learning modern software technologies.</li>
+      <li>Exploring AI, Data Science, and DevOps.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="certificates" class="max-w-6xl mx-auto mb-20">
+  <h2 class="text-4xl font-bold mb-6">Certificates</h2>
+
+  <div class="bg-white p-8 shadow">
+    <p class="text-lg">
+      Earn certifications and strengthen your technical skills through practical learning.
+    </p>
+  </div>
+</section>
+
+<section id="contact" class="max-w-6xl mx-auto mb-20">
+  <h2 class="text-4xl font-bold mb-6">Career Interests</h2>
+
+  <form class="bg-white p-8 shadow max-w-2xl"
         onsubmit="alert('Submitted Successfully!'); return false;">
 
-    <div class="mb-4">
-      <label for="name" class="block font-semibold mb-1">Full Name</label>
-
-      <input id="name"
-             name="name"
-             type="text"
-             required
-             class="w-full border border-gray-300 rounded px-3 py-2" />
+    <div class="mb-5">
+      <label class="block font-semibold mb-2">Full Name</label>
+      <input type="text" class="w-full border border-gray-300 rounded-lg p-3" required>
     </div>
 
-    <div class="mb-4">
-      <label for="email" class="block font-semibold mb-1">Email Address</label>
-
-      <input id="email"
-             name="email"
-             type="email"
-             required
-             class="w-full border border-gray-300 rounded px-3 py-2" />
+    <div class="mb-5">
+      <label class="block font-semibold mb-2">Email Address</label>
+      <input type="email" class="w-full border border-gray-300 rounded-lg p-3" required>
     </div>
 
-    <div class="mb-4">
-      <label for="role" class="block font-semibold mb-1">Area of Interest</label>
+    <div class="mb-5">
+      <label class="block font-semibold mb-2">Area of Interest</label>
 
-      <select id="role"
-              name="role"
-              required
-              class="w-full border border-gray-300 rounded px-3 py-2">
-
-        <option value="">Select a role</option>
+      <select class="w-full border border-gray-300 rounded-lg p-3">
         <option>Web Development</option>
         <option>Data Science</option>
         <option>Software Development</option>
@@ -136,83 +363,49 @@
       </select>
     </div>
 
-    <div class="mb-4">
-      <label for="message" class="block font-semibold mb-1">
-        About Your Interests
-      </label>
-
-      <textarea id="message"
-                name="message"
-                rows="4"
-                required
-                class="w-full border border-gray-300 rounded px-3 py-2"></textarea>
+    <div class="mb-5">
+      <label class="block font-semibold mb-2">Message</label>
+      <textarea rows="4" class="w-full border border-gray-300 rounded-lg p-3"></textarea>
     </div>
 
-    <button type="submit"
-            class="bg-blue-600 text-white py-2 px-6 rounded hover:bg-blue-700 transition">
+    <button type="submit" class="bg-blue-600 text-white py-3 px-6 rounded-lg">
       Submit Details
     </button>
   </form>
 </section>
 
-<!-- Footer -->
-<footer class="bg-gray-900 text-gray-300 py-10">
-  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between">
+<footer class="bg-gray-900 text-gray-300 py-12 mt-16 rounded-t-3xl">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between">
 
-    <!-- Quick Links -->
-    <div class="mb-8 md:mb-0">
-      <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
-
-      <ul>
-        <li>
-          <a href="#internship" class="hover:text-blue-400">
-            My Learning Journey
-          </a>
-        </li>
-
-        <li>
-          <a href="#achievements-goals" class="hover:text-blue-400">
-            Achievements & Goals
-          </a>
-        </li>
-
-        <li>
-          <a href="#certificates" class="hover:text-blue-400">
-            Certificates
-          </a>
-        </li>
-
-        <li>
-          <a href="#team-join" class="hover:text-blue-400">
-            Career Interests
-          </a>
-        </li>
-      </ul>
+    <div>
+      <h3 class="text-white text-2xl font-bold mb-4">LearnHub</h3>
+      <p>Modern learning platform for students and developers.</p>
     </div>
 
-    <!-- Contact Information -->
-    <div>
-      <h3 class="text-white text-lg font-semibold mb-4">Contact Us</h3>
+    <div class="mt-8 md:mt-0">
+      <h3 class="text-white text-xl font-semibold mb-4">Quick Links</h3>
 
-      <p>
-        Phone:
-        <a href="tel:9618767491" class="hover:text-blue-400">
-          9618767491
-        </a>
-      </p>
-
-      <p>
-        Email:
-        <a href="mailto:srijareddykaredha@gmail.com"
-           class="hover:text-blue-400">
-          srijareddykaredha@gmail.com
-        </a>
-      </p>
-
-      <p>Headquarters: Telangana, India</p>
-      <p>© 2026 LearnHub</p>
+      <ul class="space-y-2">
+        <li><a href="#tutorials">Tutorials</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#achievements-goals">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
   </div>
 </footer>
 
+</div>
+
+<script>
+const sidebar = document.getElementById('sidebar');
+const toggleBtn = document.getElementById('sidebarToggle');
+
+toggleBtn.addEventListener('click', () => {
+  sidebar.classList.toggle('expanded');
+});
+</script>
+
+</body>
+</html>
 
