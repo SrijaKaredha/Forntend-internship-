@@ -1,39 +1,47 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>LearnHub</title>
 
-  <link rel="icon" href="https://lh3.googleusercontent.com/a-/ALV-UjWCtL3Rh5hwiwBFawwa694i1z9U1WRcqp_Uj2zjKdBQTY99uHw=s120-p-k-rw-no" type="image/png" />
+  <link rel="icon"
+        href="https://lh3.googleusercontent.com/a-/ALV-UjWCtL3Rh5hwiwBFawwa694i1z9U1WRcqp_Uj2zjKdBQTY99uHw=s120-p-k-rw-no"
+        type="image/png" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
 
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+        rel="stylesheet" />
 
   <style>
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
     html {
       scroll-behavior: smooth;
     }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f3f4f6;
-      color: #1f2937;
-    }
+    /* Sidebar */
 
     #sidebar {
       position: fixed;
       top: 0;
       left: 0;
       height: 100vh;
-      width: 4rem;
-      background: white;
-      box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-      padding-top: 5rem;
-      z-index: 50;
+      background-color: white;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.08);
+      padding-top: 4rem;
       transition: width 0.3s ease;
-      overflow: hidden;
+      width: 4rem;
+      overflow-x: hidden;
+      z-index: 50;
     }
 
     #sidebar.expanded {
@@ -44,20 +52,27 @@
       position: fixed;
       top: 1rem;
       left: 0;
+      background-color: #2563eb;
+      border-radius: 0 0.5rem 0.5rem 0;
       width: 4rem;
       height: 4rem;
-      background: #2563eb;
-      color: white;
-      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
       z-index: 60;
-      border-radius: 0 12px 12px 0;
-      font-size: 1.5rem;
+      color: white;
+      border: none;
+    }
+
+    #sidebarToggle:hover {
+      background-color: #1e40af;
     }
 
     #sidebar nav ul {
       list-style: none;
-      padding: 0;
+      padding-left: 0;
+      margin: 0;
     }
 
     #sidebar nav ul li {
@@ -67,41 +82,38 @@
     #sidebar nav ul li a {
       display: flex;
       align-items: center;
-      text-decoration: none;
       color: #374151;
+      text-decoration: none;
       font-weight: 600;
       transition: 0.3s ease;
+      white-space: nowrap;
     }
 
     #sidebar nav ul li a:hover {
       color: #2563eb;
     }
 
-    .menu-icon {
-      font-size: 1.5rem;
-      margin-right: 1rem;
-      color: #2563eb;
-    }
-
-    #sidebar:not(.expanded) .text-label {
+    #sidebar:not(.expanded) nav ul li a span.text-label {
       display: none;
     }
 
+    .menu-icon {
+      margin-right: 1rem;
+      font-size: 1.4rem;
+      color: #2563eb;
+    }
+
     #mainContent {
-      margin-left: 5rem;
       transition: margin-left 0.3s ease;
+      margin-left: 4rem;
       padding: 1rem;
     }
 
     #sidebar.expanded ~ #mainContent {
-      margin-left: 17rem;
+      margin-left: 16rem;
     }
 
-    header {
-      background: linear-gradient(135deg, #2563eb, #1e40af);
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-    }
+    /* Cards */
 
     .bg-white {
       border-radius: 16px;
@@ -110,8 +122,10 @@
 
     .bg-white:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
+
+    /* Buttons */
 
     button {
       transition: all 0.3s ease;
@@ -120,10 +134,19 @@
 
     button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(37,99,235,0.25);
+      box-shadow: 0 8px 20px rgba(37,99,235,0.2);
     }
 
-    input, textarea, select {
+    /* Header */
+
+    header {
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      border-radius: 20px;
+    }
+
+    input,
+    textarea,
+    select {
       transition: 0.3s ease;
     }
 
@@ -134,16 +157,26 @@
       border-color: #2563eb;
       box-shadow: 0 0 10px rgba(37,99,235,0.2);
     }
+
   </style>
+
 </head>
 
-<body>
+<body class="bg-gray-50 text-gray-800">
 
-<button id="sidebarToggle">❯</button>
+<!-- Sidebar Toggle -->
+
+<button id="sidebarToggle">
+  ❯
+</button>
+
+<!-- Sidebar -->
 
 <aside id="sidebar">
+
   <nav>
     <ul>
+
       <li>
         <a href="#tutorials">
           <span class="menu-icon">🎓</span>
@@ -159,16 +192,9 @@
       </li>
 
       <li>
-        <a href="#achievements-goals">
-          <span class="menu-icon">🏆</span>
-          <span class="text-label">Achievements</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="#certificates">
-          <span class="menu-icon">📜</span>
-          <span class="text-label">Certificates</span>
+        <a href="#about">
+          <span class="menu-icon">👩‍💻</span>
+          <span class="text-label">About Me</span>
         </a>
       </li>
 
@@ -178,156 +204,364 @@
           <span class="text-label">Contact</span>
         </a>
       </li>
+
     </ul>
   </nav>
+
 </aside>
 
-<div id="mainContent" class="pb-10">
+<!-- Main Content -->
+
+<div id="mainContent">
+
+<!-- Navbar -->
 
 <nav class="bg-white shadow mb-4 rounded-xl">
+
   <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-    <h1 class="text-3xl font-bold">LearnHub</h1>
+
+    <h1 class="text-3xl font-bold text-blue-600">
+      LearnHub
+    </h1>
 
     <div class="space-x-6 hidden md:flex">
-      <a href="#">Home</a>
-      <a href="#tutorials">Tutorials</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+
+      <a href="#" class="hover:text-blue-600">Home</a>
+
+      <a href="#tutorials" class="hover:text-blue-600">
+        Tutorials
+      </a>
+
+      <a href="#projects" class="hover:text-blue-600">
+        Projects
+      </a>
+
+      <a href="#about" class="hover:text-blue-600">
+        About
+      </a>
+
+      <a href="#contact" class="hover:text-blue-600">
+        Contact
+      </a>
+
     </div>
+
   </div>
+
 </nav>
 
-<header class="text-white text-center py-24 mb-12 mx-4">
-  <h2 class="text-5xl font-bold mb-6">Welcome to LearnHub</h2>
+<!-- Hero Section -->
+
+<header class="text-white text-center py-24 mb-8">
+
+  <h2 class="text-5xl font-bold mb-6">
+    Welcome to LearnHub
+  </h2>
 
   <p class="text-xl mb-8">
     Empowering future technologists through hands-on learning and innovation.
   </p>
 
   <div class="space-x-4">
-    <a href="#tutorials" class="bg-white text-blue-600 font-bold py-3 px-6 rounded-xl inline-block">
+
+    <a href="#tutorials"
+       class="bg-white text-blue-600 font-bold py-3 px-6 rounded-xl inline-block">
+
       Start Learning
+
     </a>
 
-    <a href="#projects" class="bg-blue-900 text-white font-bold py-3 px-6 rounded-xl inline-block">
+    <a href="#projects"
+       class="bg-blue-900 text-white font-bold py-3 px-6 rounded-xl inline-block">
+
       Browse Projects
+
     </a>
+
   </div>
+
 </header>
 
+<!-- Search -->
+
 <section class="max-w-4xl mx-auto mb-16 px-4">
+
   <input type="text"
          placeholder="Search tutorials or projects..."
          class="w-full p-4 border border-gray-300 rounded-xl bg-white">
+
 </section>
 
-<section class="max-w-6xl mx-auto mb-20 px-4" id="tutorials">
-  <h2 class="text-4xl font-bold mb-8">Featured Tutorials</h2>
+<!-- Tutorials -->
+
+<section id="tutorials"
+         class="max-w-6xl mx-auto mt-12 px-4">
+
+  <h3 class="text-3xl font-bold mb-8">
+    Featured Tutorials
+  </h3>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
     <div class="bg-white p-6 shadow">
-      <h3 class="text-2xl font-bold mb-3">Java Basics</h3>
-      <p class="mb-4">Learn the fundamentals of Java programming.</p>
 
-      <a href="https://www.learnjavaonline.org/" target="_blank">
-        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg">
+      <h4 class="text-2xl font-bold mb-3">
+        Java Basics
+      </h4>
+
+      <p class="text-gray-600">
+        Learn the fundamentals of Java programming.
+      </p>
+
+      <a href="https://www.learnjavaonline.org/"
+         target="_blank">
+
+        <button class="mt-4 bg-blue-600 text-white py-2 px-5 rounded-lg">
           Start Tutorial
         </button>
+
       </a>
+
     </div>
 
     <div class="bg-white p-6 shadow">
-      <h3 class="text-2xl font-bold mb-3">Python for Data Science</h3>
-      <p class="mb-4">Dive into Python and explore data analysis.</p>
 
-      <a href="https://www.kaggle.com/learn/python" target="_blank">
-        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg">
+      <h4 class="text-2xl font-bold mb-3">
+        Python for Data Science
+      </h4>
+
+      <p class="text-gray-600">
+        Learn Python and data analysis.
+      </p>
+
+      <a href="https://www.kaggle.com/learn/python"
+         target="_blank">
+
+        <button class="mt-4 bg-blue-600 text-white py-2 px-5 rounded-lg">
           Start Tutorial
         </button>
+
       </a>
+
     </div>
 
     <div class="bg-white p-6 shadow">
-      <h3 class="text-2xl font-bold mb-3">Advanced C++ Concepts</h3>
-      <p class="mb-4">Master object-oriented programming and STL in C++.</p>
 
-      <a href="https://www.learncpp.com/" target="_blank">
-        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg">
+      <h4 class="text-2xl font-bold mb-3">
+        React JS
+      </h4>
+
+      <p class="text-gray-600">
+        Build modern interactive web applications.
+      </p>
+
+      <a href="https://react.dev/"
+         target="_blank">
+
+        <button class="mt-4 bg-blue-600 text-white py-2 px-5 rounded-lg">
           Start Tutorial
         </button>
+
       </a>
+
     </div>
+
   </div>
+
 </section>
 
-<section id="contact" class="max-w-6xl mx-auto mb-20 px-4">
-  <h2 class="text-4xl font-bold mb-10">Contact & Career Interests</h2>
+<!-- Projects -->
+
+<section id="projects"
+         class="max-w-6xl mx-auto mt-20 px-4">
+
+  <h3 class="text-3xl font-bold mb-8">
+    Projects
+  </h3>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <div class="bg-white p-6 shadow">
+
+      <h4 class="text-2xl font-bold mb-3">
+        FreeCodeCamp Projects
+      </h4>
+
+      <p class="text-gray-600">
+        Hands-on projects for web development.
+      </p>
+
+      <a href="https://www.freecodecamp.org/learn"
+         target="_blank">
+
+        <button class="mt-4 bg-blue-600 text-white py-2 px-5 rounded-lg">
+          Explore
+        </button>
+
+      </a>
+
+    </div>
+
+    <div class="bg-white p-6 shadow">
+
+      <h4 class="text-2xl font-bold mb-3">
+        GitHub Awesome
+      </h4>
+
+      <p class="text-gray-600">
+        Discover open-source projects.
+      </p>
+
+      <a href="https://github.com/sindresorhus/awesome"
+         target="_blank">
+
+        <button class="mt-4 bg-blue-600 text-white py-2 px-5 rounded-lg">
+          Explore
+        </button>
+
+      </a>
+
+    </div>
+
+    <div class="bg-white p-6 shadow">
+
+      <h4 class="text-2xl font-bold mb-3">
+        The Odin Project
+      </h4>
+
+      <p class="text-gray-600">
+        Build full-stack projects with guidance.
+      </p>
+
+      <a href="https://www.theodinproject.com/projects"
+         target="_blank">
+
+        <button class="mt-4 bg-blue-600 text-white py-2 px-5 rounded-lg">
+          Explore
+        </button>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- About -->
+
+<section id="about"
+         class="mb-20 max-w-6xl mx-auto mt-20 px-4">
+
+  <h2 class="text-3xl font-bold mb-6">
+    About Me
+  </h2>
+
+  <div class="bg-white p-8 shadow">
+
+    <p class="mb-4 text-lg">
+      Hi! I am <strong>Srija Karedha</strong>, a passionate Computer Science student interested in web development, software development, and data science.
+    </p>
+
+    <p class="mb-4 text-lg">
+      LearnHub is my personal learning platform where I showcase tutorials, projects, technical interests, and learning resources.
+    </p>
+
+    <p class="mb-2">
+      <strong>Phone:</strong> 9618767491
+    </p>
+
+    <p class="mb-2">
+      <strong>Email:</strong>
+
+      <a href="mailto:srijareddykaredha@gmail.com"
+         class="text-blue-600 underline">
+
+        srijareddykaredha@gmail.com
+
+      </a>
+    </p>
+
+    <p class="mb-2">
+      <strong>LinkedIn:</strong>
+
+      <a href="https://www.linkedin.com/in/srija-karedha-460956295"
+         target="_blank"
+         class="text-blue-600 underline">
+
+        linkedin.com/in/srija-karedha-460956295
+
+      </a>
+    </p>
+
+    <p class="mb-2">
+      <strong>GitHub:</strong>
+
+      <a href="https://github.com/SrijaKaredha"
+         target="_blank"
+         class="text-blue-600 underline">
+
+        github.com/SrijaKaredha
+
+      </a>
+    </p>
+
+  </div>
+
+</section>
+
+<!-- Contact -->
+
+<section id="contact"
+         class="max-w-6xl mx-auto mt-12 px-4 mb-20">
+
+  <h2 class="text-3xl font-bold mb-8">
+    Contact & Career Interests
+  </h2>
 
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
-    <div class="bg-white p-8 shadow rounded-2xl">
-      <h3 class="text-3xl font-bold mb-6 text-blue-600">
+    <div class="bg-white p-8 shadow">
+
+      <h3 class="text-2xl font-bold mb-4 text-blue-600">
         Website Creator
       </h3>
 
-      <div class="space-y-5 text-lg">
+      <p class="mb-3">
+        <strong>Name:</strong> Srija Karedha
+      </p>
 
-        <p>
-          <span class="font-semibold">Name:</span>
-          Srija Karedha
-        </p>
+      <p class="mb-3">
+        <strong>Phone:</strong> 9618767491
+      </p>
 
-        <p>
-          <span class="font-semibold">Phone:</span>
-          <a href="tel:9618767491"
-             class="text-blue-600 hover:underline">
-            9618767491
-          </a>
-        </p>
+      <p class="mb-3">
+        <strong>Email:</strong> srijareddykaredha@gmail.com
+      </p>
 
-        <p>
-          <span class="font-semibold">Email:</span>
-          <a href="mailto:srijareddykaredha@gmail.com"
-             class="text-blue-600 hover:underline">
-            srijareddykaredha@gmail.com
-          </a>
-        </p>
+      <p class="mb-3">
+        <strong>GitHub:</strong>
 
-        <p>
-          <span class="font-semibold">LinkedIn:</span><br>
+        <a href="https://github.com/SrijaKaredha"
+           target="_blank"
+           class="text-blue-600 underline">
 
-          <a href="https://www.linkedin.com/in/srija-karedha-460956295"
-             target="_blank"
-             class="text-blue-600 break-all hover:underline">
+          github.com/SrijaKaredha
 
-            linkedin.com/in/srija-karedha-460956295
-          </a>
-        </p>
+        </a>
+      </p>
 
-        <p>
-          <span class="font-semibold">GitHub:</span><br>
-
-          <a href="https://github.com/SrijaKaredha"
-             target="_blank"
-             class="text-blue-600 hover:underline">
-
-            github.com/SrijaKaredha
-          </a>
-        </p>
-
-      </div>
     </div>
 
-    <form class="bg-white p-8 shadow rounded-2xl"
+    <form class="bg-white p-8 shadow"
           onsubmit="alert('Submitted Successfully!'); return false;">
 
-      <h3 class="text-3xl font-bold mb-6 text-blue-600">
-        Career Interests
+      <h3 class="text-2xl font-bold mb-6">
+        Contact Form
       </h3>
 
-      <div class="mb-5">
+      <div class="mb-4">
+
         <label class="block font-semibold mb-2">
           Full Name
         </label>
@@ -335,62 +569,128 @@
         <input type="text"
                class="w-full border border-gray-300 rounded-lg p-3"
                required>
+
       </div>
 
-      <div class="mb-5">
+      <div class="mb-4">
+
         <label class="block font-semibold mb-2">
-          Email Address
+          Email
         </label>
 
         <input type="email"
                class="w-full border border-gray-300 rounded-lg p-3"
                required>
+
       </div>
 
-      <div class="mb-5">
-        <label class="block font-semibold mb-2">
-          Area of Interest
-        </label>
+      <div class="mb-4">
 
-        <select class="w-full border border-gray-300 rounded-lg p-3">
-
-          <option>Web Development</option>
-          <option>Data Science</option>
-          <option>Software Development</option>
-          <option>DevOps</option>
-
-        </select>
-      </div>
-
-      <div class="mb-5">
         <label class="block font-semibold mb-2">
           Message
         </label>
 
         <textarea rows="4"
                   class="w-full border border-gray-300 rounded-lg p-3"></textarea>
+
       </div>
 
       <button type="submit"
-              class="bg-blue-600 text-white py-3 px-6 rounded-lg w-full hover:bg-blue-700">
+              class="bg-blue-600 text-white py-3 px-6 rounded-lg w-full">
 
         Submit Details
+
       </button>
+
     </form>
 
   </div>
+
 </section>
+
+<!-- Footer -->
+
+<footer class="bg-gray-900 text-gray-300 py-10">
+
+  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between">
+
+    <div class="mb-8 md:mb-0">
+
+      <h3 class="text-white text-xl font-bold mb-4">
+        LearnHub
+      </h3>
+
+      <p>
+        Modern learning platform for students and developers.
+      </p>
+
+    </div>
+
+    <div>
+
+      <h3 class="text-white text-lg font-semibold mb-4">
+        Contact Us
+      </h3>
+
+      <p>
+        Phone:
+        <a href="tel:9618767491"
+           class="hover:text-blue-400">
+
+          9618767491
+
+        </a>
+      </p>
+
+      <p>
+        Email:
+        <a href="mailto:srijareddykaredha@gmail.com"
+           class="hover:text-blue-400">
+
+          srijareddykaredha@gmail.com
+
+        </a>
+      </p>
+
+      <p>
+        Created by Srija Karedha
+      </p>
+
+      <p>
+        GitHub:
+
+        <a href="https://github.com/SrijaKaredha"
+           target="_blank"
+           class="hover:text-blue-400">
+
+          github.com/SrijaKaredha
+
+        </a>
+      </p>
+
+      <p>
+        © 2026 LearnHub
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
 
 </div>
 
 <script>
-const sidebar = document.getElementById('sidebar');
-const toggleBtn = document.getElementById('sidebarToggle');
 
-toggleBtn.addEventListener('click', () => {
-  sidebar.classList.toggle('expanded');
+const sidebar = document.getElementById("sidebar");
+const toggleBtn = document.getElementById("sidebarToggle");
+
+toggleBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("expanded");
 });
+
 </script>
 
 </body>
 </html>
+```
