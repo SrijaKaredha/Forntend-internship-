@@ -5,149 +5,149 @@
 <head>
 
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>LearnHub</title>
 
   <link rel="icon"
     href="https://lh3.googleusercontent.com/a-/ALV-UjWCtL3Rh5hwiwBFawwa694i1z9U1WRcqp_Uj2zjKdBQTY99uHw=s120-p-k-rw-no"
-    type="image/png" />
+    type="image/png"/>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+    rel="stylesheet"/>
 
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-    rel="stylesheet" />
+    rel="stylesheet"/>
 
-  <style>
+<style>
 
-    html {
-      scroll-behavior: smooth;
-    }
+html{
+scroll-behavior:smooth;
+}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #f3f4f6;
-      color: #1f2937;
-    }
+body{
+font-family:'Poppins',sans-serif;
+background:#f3f4f6;
+color:#1f2937;
+margin:0;
+padding:0;
+}
 
-    #sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 4rem;
-      height: 100vh;
-      background: white;
-      box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-      padding-top: 5rem;
-      overflow: hidden;
-      transition: width 0.3s ease;
-      z-index: 50;
-    }
+#sidebar{
+position:fixed;
+top:0;
+left:0;
+width:4rem;
+height:100vh;
+background:white;
+box-shadow:2px 0 10px rgba(0,0,0,0.1);
+padding-top:5rem;
+overflow:hidden;
+transition:0.3s;
+z-index:50;
+}
 
-    #sidebar.expanded {
-      width: 16rem;
-    }
+#sidebar.expanded{
+width:16rem;
+}
 
-    #sidebarToggle {
-      position: fixed;
-      top: 1rem;
-      left: 0;
-      width: 4rem;
-      height: 4rem;
-      border: none;
-      background: #2563eb;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-      z-index: 60;
-      border-radius: 0 12px 12px 0;
-    }
+#sidebarToggle{
+position:fixed;
+top:1rem;
+left:0;
+width:4rem;
+height:4rem;
+background:#2563eb;
+color:white;
+border:none;
+font-size:1.5rem;
+cursor:pointer;
+z-index:60;
+border-radius:0 12px 12px 0;
+}
 
-    #sidebar nav ul {
-      list-style: none;
-      padding: 0;
-    }
+#sidebar nav ul{
+list-style:none;
+padding:0;
+}
 
-    #sidebar nav ul li {
-      padding: 1rem;
-    }
+#sidebar nav ul li{
+padding:1rem;
+}
 
-    #sidebar nav ul li a {
-      display: flex;
-      align-items: center;
-      color: #374151;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
+#sidebar nav ul li a{
+display:flex;
+align-items:center;
+text-decoration:none;
+color:#374151;
+font-weight:600;
+transition:0.3s;
+}
 
-    #sidebar nav ul li a:hover {
-      color: #2563eb;
-    }
+#sidebar nav ul li a:hover{
+color:#2563eb;
+}
 
-    .menu-icon {
-      margin-right: 1rem;
-      font-size: 1.4rem;
-    }
+.menu-icon{
+margin-right:1rem;
+font-size:1.4rem;
+}
 
-    #sidebar:not(.expanded) .text-label {
-      display: none;
-    }
+#sidebar:not(.expanded) .text-label{
+display:none;
+}
 
-    #mainContent {
-      margin-left: 5rem;
-      padding: 1rem;
-      transition: margin-left 0.3s ease;
-    }
+#mainContent{
+margin-left:5rem;
+padding:1rem;
+transition:0.3s;
+}
 
-    #sidebar.expanded ~ #mainContent {
-      margin-left: 17rem;
-    }
+#sidebar.expanded ~ #mainContent{
+margin-left:17rem;
+}
 
-    .card {
-      background: white;
-      border-radius: 18px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-      transition: 0.3s ease;
-    }
+.card{
+background:white;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+transition:0.3s;
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-    }
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,0.12);
+}
 
-    header {
-      background: linear-gradient(135deg, #2563eb, #1e40af);
-      border-radius: 25px;
-      color: white;
-    }
+header{
+background:linear-gradient(135deg,#2563eb,#1e40af);
+border-radius:25px;
+color:white;
+}
 
-    .btn {
-      transition: 0.3s ease;
-      font-weight: 600;
-    }
+.btn{
+transition:0.3s;
+font-weight:600;
+}
 
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(37,99,235,0.25);
-    }
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(37,99,235,0.25);
+}
 
-    input,
-    textarea,
-    select {
-      transition: 0.3s ease;
-    }
+input,
+textarea{
+transition:0.3s;
+}
 
-    input:focus,
-    textarea:focus,
-    select:focus {
-      outline: none;
-      border-color: #2563eb;
-      box-shadow: 0 0 10px rgba(37,99,235,0.2);
-    }
+input:focus,
+textarea:focus{
+outline:none;
+border-color:#2563eb;
+box-shadow:0 0 10px rgba(37,99,235,0.2);
+}
 
-  </style>
+</style>
 
 </head>
 
@@ -157,41 +157,41 @@
 
 <aside id="sidebar">
 
-  <nav>
+<nav>
 
-    <ul>
+<ul>
 
-      <li>
-        <a href="#tutorials">
-          <span class="menu-icon">🎓</span>
-          <span class="text-label">Tutorials</span>
-        </a>
-      </li>
+<li>
+<a href="#tutorials">
+<span class="menu-icon">🎓</span>
+<span class="text-label">Tutorials</span>
+</a>
+</li>
 
-      <li>
-        <a href="#projects">
-          <span class="menu-icon">💻</span>
-          <span class="text-label">Projects</span>
-        </a>
-      </li>
+<li>
+<a href="#projects">
+<span class="menu-icon">💻</span>
+<span class="text-label">Projects</span>
+</a>
+</li>
 
-      <li>
-        <a href="#about">
-          <span class="menu-icon">👩‍💻</span>
-          <span class="text-label">About Me</span>
-        </a>
-      </li>
+<li>
+<a href="#about">
+<span class="menu-icon">👩‍💻</span>
+<span class="text-label">About</span>
+</a>
+</li>
 
-      <li>
-        <a href="#contact">
-          <span class="menu-icon">📞</span>
-          <span class="text-label">Contact</span>
-        </a>
-      </li>
+<li>
+<a href="#contact">
+<span class="menu-icon">📞</span>
+<span class="text-label">Contact</span>
+</a>
+</li>
 
-    </ul>
+</ul>
 
-  </nav>
+</nav>
 
 </aside>
 
@@ -199,250 +199,387 @@
 
 <nav class="bg-white shadow rounded-2xl mb-6">
 
-  <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+<div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
 
-    <h1 class="text-3xl font-bold text-blue-600">
-      LearnHub
-    </h1>
+<h1 class="text-4xl font-bold text-blue-600">
+LearnHub
+</h1>
 
-    <div class="space-x-6 hidden md:flex">
+<div class="space-x-6 hidden md:flex">
 
-      <a href="#" class="hover:text-blue-600">Home</a>
-      <a href="#tutorials" class="hover:text-blue-600">Tutorials</a>
-      <a href="#projects" class="hover:text-blue-600">Projects</a>
-      <a href="#about" class="hover:text-blue-600">About</a>
-      <a href="#contact" class="hover:text-blue-600">Contact</a>
+<a href="#" class="hover:text-blue-600">Home</a>
+<a href="#tutorials" class="hover:text-blue-600">Tutorials</a>
+<a href="#projects" class="hover:text-blue-600">Projects</a>
+<a href="#about" class="hover:text-blue-600">About</a>
+<a href="#contact" class="hover:text-blue-600">Contact</a>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </nav>
 
 <header class="text-center py-24 mb-12">
 
-  <h2 class="text-5xl font-bold mb-6">
-    Welcome to LearnHub
-  </h2>
+<h2 class="text-6xl font-bold mb-6">
+Welcome to LearnHub
+</h2>
 
-  <p class="text-xl mb-8">
-    Empowering future technologists through hands-on learning and innovation.
-  </p>
+<p class="text-2xl mb-8">
+Empowering future technologists through hands-on learning and innovation.
+</p>
 
-  <div class="space-x-4">
+<div class="space-x-4">
 
-    <a href="#tutorials"
-      class="bg-white text-blue-600 py-3 px-6 rounded-xl inline-block font-bold btn">
-      Start Learning
-    </a>
+<a href="#tutorials"
+class="bg-white text-blue-600 py-3 px-6 rounded-xl inline-block font-bold btn">
+Start Learning
+</a>
 
-    <a href="#projects"
-      class="bg-blue-900 text-white py-3 px-6 rounded-xl inline-block font-bold btn">
-      Browse Projects
-    </a>
+<a href="#projects"
+class="bg-blue-900 text-white py-3 px-6 rounded-xl inline-block font-bold btn">
+Browse Projects
+</a>
 
-  </div>
+</div>
 
 </header>
 
 <section class="max-w-4xl mx-auto mb-16 px-4">
 
-  <input type="text"
-    placeholder="Search tutorials or projects..."
-    class="w-full p-4 rounded-2xl border border-gray-300 bg-white">
+<input type="text"
+placeholder="Search tutorials or projects..."
+class="w-full p-4 rounded-2xl border border-gray-300 bg-white">
 
 </section>
 
 <section id="tutorials" class="max-w-6xl mx-auto mb-20 px-4">
 
-  <h2 class="text-4xl font-bold mb-8">Featured Tutorials</h2>
+<h2 class="text-5xl font-bold mb-8">
+Featured Tutorials
+</h2>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-    <div class="card p-6">
-      <h3 class="text-2xl font-bold mb-3">Java Basics</h3>
-      <p class="mb-4">Learn the fundamentals of Java programming.</p>
-      <a href="https://www.learnjavaonline.org/" target="_blank">
-        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg btn">Start Tutorial</button>
-      </a>
-    </div>
+<div class="card p-8">
 
-    <div class="card p-6">
-      <h3 class="text-2xl font-bold mb-3">Python for Data Science</h3>
-      <p class="mb-4">Learn Python and explore data analysis.</p>
-      <a href="https://www.kaggle.com/learn/python" target="_blank">
-        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg btn">Start Tutorial</button>
-      </a>
-    </div>
+<h3 class="text-3xl font-bold mb-4">
+Java Basics
+</h3>
 
-    <div class="card p-6">
-      <h3 class="text-2xl font-bold mb-3">React JS</h3>
-      <p class="mb-4">Build modern and interactive web applications.</p>
-      <a href="https://react.dev/" target="_blank">
-        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg btn">Start Tutorial</button>
-      </a>
-    </div>
+<p class="mb-5 text-lg">
+Learn the fundamentals of Java programming.
+</p>
 
-  </div>
+<a href="https://www.learnjavaonline.org/" target="_blank">
+
+<button class="bg-blue-600 text-white py-2 px-5 rounded-lg btn">
+Start Tutorial
+</button>
+
+</a>
+
+</div>
+
+<div class="card p-8">
+
+<h3 class="text-3xl font-bold mb-4">
+Python for Data Science
+</h3>
+
+<p class="mb-5 text-lg">
+Learn Python and explore data analysis.
+</p>
+
+<a href="https://www.kaggle.com/learn/python" target="_blank">
+
+<button class="bg-blue-600 text-white py-2 px-5 rounded-lg btn">
+Start Tutorial
+</button>
+
+</a>
+
+</div>
+
+<div class="card p-8">
+
+<h3 class="text-3xl font-bold mb-4">
+React JS
+</h3>
+
+<p class="mb-5 text-lg">
+Build modern and interactive web applications.
+</p>
+
+<a href="https://react.dev/" target="_blank">
+
+<button class="bg-blue-600 text-white py-2 px-5 rounded-lg btn">
+Start Tutorial
+</button>
+
+</a>
+
+</div>
+
+</div>
 
 </section>
 
 <section id="projects" class="max-w-6xl mx-auto mb-20 px-4">
 
-  <h2 class="text-4xl font-bold mb-8">Projects</h2>
+<h2 class="text-5xl font-bold mb-8">
+Projects
+</h2>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-    <div class="card p-6">
-      <h3 class="text-2xl font-bold mb-3">FreeCodeCamp Projects</h3>
-      <p class="mb-4">Hands-on projects for web development and programming.</p>
-      <a href="https://www.freecodecamp.org/learn" target="_blank">
-        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg btn">Explore</button>
-      </a>
-    </div>
+<div class="card p-8">
 
-    <div class="card p-6">
-      <h3 class="text-2xl font-bold mb-3">GitHub Awesome</h3>
-      <p class="mb-4">Discover open-source projects and collections.</p>
-      <a href="https://github.com/sindresorhus/awesome" target="_blank">
-        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg btn">Explore</button>
-      </a>
-    </div>
+<h3 class="text-3xl font-bold mb-4">
+FreeCodeCamp Projects
+</h3>
 
-    <div class="card p-6">
-      <h3 class="text-2xl font-bold mb-3">The Odin Project</h3>
-      <p class="mb-4">Build full-stack projects with guidance.</p>
-      <a href="https://www.theodinproject.com/projects" target="_blank">
-        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg btn">Explore</button>
-      </a>
-    </div>
+<p class="mb-5 text-lg">
+Hands-on projects for web development and programming.
+</p>
 
-  </div>
+<a href="https://www.freecodecamp.org/learn" target="_blank">
+
+<button class="bg-blue-600 text-white py-2 px-5 rounded-lg btn">
+Explore
+</button>
+
+</a>
+
+</div>
+
+<div class="card p-8">
+
+<h3 class="text-3xl font-bold mb-4">
+GitHub Awesome
+</h3>
+
+<p class="mb-5 text-lg">
+Discover open-source projects and collections.
+</p>
+
+<a href="https://github.com/sindresorhus/awesome" target="_blank">
+
+<button class="bg-blue-600 text-white py-2 px-5 rounded-lg btn">
+Explore
+</button>
+
+</a>
+
+</div>
+
+<div class="card p-8">
+
+<h3 class="text-3xl font-bold mb-4">
+The Odin Project
+</h3>
+
+<p class="mb-5 text-lg">
+Build full-stack projects with guidance.
+</p>
+
+<a href="https://www.theodinproject.com/projects" target="_blank">
+
+<button class="bg-blue-600 text-white py-2 px-5 rounded-lg btn">
+Explore
+</button>
+
+</a>
+
+</div>
+
+</div>
 
 </section>
 
 <section id="about" class="max-w-6xl mx-auto mb-20 px-4">
 
-  <h2 class="text-4xl font-bold mb-6">About Me</h2>
+<h2 class="text-5xl font-bold mb-8">
+About Me
+</h2>
 
-  <div class="card p-8">
+<div class="card p-10">
 
-    <p class="text-lg mb-4">
-      Hi! I am <strong>Srija Karedha</strong>, a passionate Computer Science student interested in web development, software development, and data science.
-    </p>
+<p class="text-xl mb-5">
+Hi! I am <strong>Srija Karedha</strong>, a passionate Computer Science student interested in web development, software development, and data science.
+</p>
 
-    <p class="text-lg mb-4">
-      LearnHub is my personal learning platform where I showcase tutorials, projects, technical interests, and learning resources.
-    </p>
+<p class="text-xl mb-5">
+LearnHub is my personal learning platform where I showcase tutorials, projects, technical interests, and learning resources.
+</p>
 
-    <p><strong>Phone:</strong> 9618767491</p>
+<p class="text-lg"><strong>Phone:</strong> 9618767491</p>
 
-    <p>
-      <strong>Email:</strong>
-      <a href="mailto:learnhuub@gmail.com" class="text-blue-600 underline">
-        learnhuub@gmail.com
-      </a>
-    </p>
+<p class="text-lg mt-3">
+<strong>Email:</strong>
+<a href="mailto:learnhuub@gmail.com" class="text-blue-600 underline">
+learnhuub@gmail.com
+</a>
+</p>
 
-    <p>
-      <strong>LinkedIn:</strong>
-      <a href="https://www.linkedin.com/in/srija-karedha-460956295" target="_blank" class="text-blue-600 underline">
-        linkedin.com/in/srija-karedha-460956295
-      </a>
-    </p>
+<p class="text-lg mt-3">
+<strong>LinkedIn:</strong>
+<a href="https://www.linkedin.com/in/srija-karedha-460956295"
+target="_blank"
+class="text-blue-600 underline">
+linkedin.com/in/srija-karedha-460956295
+</a>
+</p>
 
-    <p>
-      <strong>GitHub:</strong>
-      <a href="https://github.com/SrijaKaredha" target="_blank" class="text-blue-600 underline">
-        github.com/SrijaKaredha
-      </a>
-    </p>
+<p class="text-lg mt-3">
+<strong>GitHub:</strong>
+<a href="https://github.com/SrijaKaredha"
+target="_blank"
+class="text-blue-600 underline">
+github.com/SrijaKaredha
+</a>
+</p>
 
-  </div>
+</div>
 
 </section>
 
 <section id="contact" class="max-w-6xl mx-auto mb-20 px-4">
 
-  <h2 class="text-4xl font-bold mb-8">Contact Form</h2>
+<h2 class="text-5xl font-bold mb-8">
+Contact Form
+</h2>
 
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
-    <div class="card p-8">
+<div class="card p-10">
 
-      <h3 class="text-2xl font-bold mb-6 text-blue-600">
-        Website Creator
-      </h3>
+<h3 class="text-4xl font-bold mb-6 text-blue-600">
+Website Creator
+</h3>
 
-      <p><strong>Name:</strong> Srija Karedha</p>
-      <p><strong>Phone:</strong> 9618767491</p>
-      <p><strong>Email:</strong> learnhuub@gmail.com</p>
+<p class="text-xl mb-3"><strong>Name:</strong> Srija Karedha</p>
 
-    </div>
+<p class="text-xl mb-3"><strong>Phone:</strong> 9618767491</p>
 
-    <form action="https://formspree.io/f/xaqknrkp" method="POST" class="card p-8">
+<p class="text-xl mb-3"><strong>Email:</strong> learnhuub@gmail.com</p>
 
-      <div class="mb-5">
-        <label class="block font-semibold mb-2">Full Name</label>
-        <input type="text" name="name" class="w-full border border-gray-300 rounded-lg p-3" required>
-      </div>
+<p class="text-xl mb-3">
+<strong>GitHub:</strong>
+github.com/SrijaKaredha
+</p>
 
-      <div class="mb-5">
-        <label class="block font-semibold mb-2">Email</label>
-        <input type="email" name="email" class="w-full border border-gray-300 rounded-lg p-3" required>
-      </div>
+</div>
 
-      <div class="mb-5">
-        <label class="block font-semibold mb-2">Message</label>
-        <textarea name="message" rows="4" class="w-full border border-gray-300 rounded-lg p-3"></textarea>
-      </div>
+<form action="https://formspree.io/f/xaqknrkp"
+method="POST"
+class="card p-10">
 
-      <button type="submit" class="bg-blue-600 text-white py-3 px-6 rounded-lg w-full btn">
-        Submit Details
-      </button>
+<div class="mb-5">
 
-    </form>
+<label class="block font-semibold mb-2 text-xl">
+Full Name
+</label>
 
-  </div>
+<input type="text"
+name="name"
+class="w-full border border-gray-300 rounded-lg p-4"
+required>
+
+</div>
+
+<div class="mb-5">
+
+<label class="block font-semibold mb-2 text-xl">
+Email
+</label>
+
+<input type="email"
+name="email"
+class="w-full border border-gray-300 rounded-lg p-4"
+required>
+
+</div>
+
+<div class="mb-5">
+
+<label class="block font-semibold mb-2 text-xl">
+Message
+</label>
+
+<textarea name="message"
+rows="5"
+class="w-full border border-gray-300 rounded-lg p-4"></textarea>
+
+</div>
+
+<button type="submit"
+class="bg-blue-600 text-white py-3 px-6 rounded-lg w-full btn text-lg">
+
+Submit Details
+
+</button>
+
+</form>
+
+</div>
 
 </section>
 
 <footer class="bg-gray-900 text-gray-300 py-12 rounded-t-3xl">
 
-  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between">
+<div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between">
 
-    <div>
-      <h3 class="text-white text-2xl font-bold mb-4">LearnHub</h3>
-      <p>Modern learning platform for students and developers.</p>
-    </div>
+<div>
 
-    <div class="mt-8 md:mt-0">
+<h3 class="text-white text-3xl font-bold mb-4">
+LearnHub
+</h3>
 
-      <h3 class="text-white text-xl font-semibold mb-4">Contact Us</h3>
+<p class="text-lg">
+Modern learning platform for students and developers.
+</p>
 
-      <p>Phone: 9618767491</p>
+</div>
 
-      <p>
-        Email:
-        <a href="mailto:learnhuub@gmail.com" class="hover:text-blue-400">
-          learnhuub@gmail.com
-        </a>
-      </p>
+<div class="mt-8 md:mt-0">
 
-      <p>Created by Srija Karedha</p>
+<h3 class="text-white text-2xl font-semibold mb-4">
+Contact Us
+</h3>
 
-      <p>
-        GitHub:
-        <a href="https://github.com/SrijaKaredha" target="_blank" class="hover:text-blue-400">
-          github.com/SrijaKaredha
-        </a>
-      </p>
+<p class="text-lg mb-2">
+Phone: 9618767491
+</p>
 
-      <p>© 2026 LearnHub</p>
+<p class="text-lg mb-2">
+Email:
+<a href="mailto:learnhuub@gmail.com"
+class="hover:text-blue-400">
+learnhuub@gmail.com
+</a>
+</p>
 
-    </div>
+<p class="text-lg mb-2">
+Created by Srija Karedha
+</p>
 
-  </div>
+<p class="text-lg mb-2">
+GitHub:
+<a href="https://github.com/SrijaKaredha"
+target="_blank"
+class="hover:text-blue-400">
+github.com/SrijaKaredha
+</a>
+</p>
+
+<p class="text-lg">
+© 2026 LearnHub
+</p>
+
+</div>
+
+</div>
 
 </footer>
 
@@ -450,18 +587,19 @@
 
 <script>
 
-const sidebar = document.getElementById("sidebar");
-const toggleBtn = document.getElementById("sidebarToggle");
+const sidebar=document.getElementById("sidebar");
+const toggleBtn=document.getElementById("sidebarToggle");
 
-toggleBtn.addEventListener("click", () => {
+toggleBtn.addEventListener("click",()=>{
 
-  sidebar.classList.toggle("expanded");
+sidebar.classList.toggle("expanded");
 
-  if (sidebar.classList.contains("expanded")) {
-    toggleBtn.innerHTML = "❮";
-  } else {
-    toggleBtn.innerHTML = "❯";
-  }
+if(sidebar.classList.contains("expanded")){
+toggleBtn.innerHTML="❮";
+}
+else{
+toggleBtn.innerHTML="❯";
+}
 
 });
 
