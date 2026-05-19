@@ -1,31 +1,34 @@
-```html
+```html id="m0s9x2"
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>LearnHub</title>
 
   <link rel="icon"
-        href="https://lh3.googleusercontent.com/a-/ALV-UjWCtL3Rh5hwiwBFawwa694i1z9U1WRcqp_Uj2zjKdBQTY99uHw=s120-p-k-rw-no"
-        type="image/png" />
+    href="https://lh3.googleusercontent.com/a-/ALV-UjWCtL3Rh5hwiwBFawwa694i1z9U1WRcqp_Uj2zjKdBQTY99uHw=s120-p-k-rw-no"
+    type="image/png" />
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-        rel="stylesheet" />
+    rel="stylesheet">
 
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-        rel="stylesheet" />
+    rel="stylesheet" />
 
   <style>
 
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-
     html {
       scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f3f4f6;
+      color: #1f2937;
     }
 
     /* Sidebar */
@@ -34,13 +37,13 @@
       position: fixed;
       top: 0;
       left: 0;
-      height: 100vh;
-      background-color: white;
-      box-shadow: 2px 0 8px rgba(0,0,0,0.08);
-      padding-top: 4rem;
-      transition: width 0.3s ease;
       width: 4rem;
-      overflow-x: hidden;
+      height: 100vh;
+      background: white;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+      padding-top: 5rem;
+      overflow: hidden;
+      transition: width 0.3s ease;
       z-index: 50;
     }
 
@@ -52,27 +55,20 @@
       position: fixed;
       top: 1rem;
       left: 0;
-      background-color: #2563eb;
-      border-radius: 0 0.5rem 0.5rem 0;
       width: 4rem;
       height: 4rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border: none;
+      background: #2563eb;
+      color: white;
+      font-size: 1.5rem;
       cursor: pointer;
       z-index: 60;
-      color: white;
-      border: none;
-    }
-
-    #sidebarToggle:hover {
-      background-color: #1e40af;
+      border-radius: 0 12px 12px 0;
     }
 
     #sidebar nav ul {
       list-style: none;
-      padding-left: 0;
-      margin: 0;
+      padding: 0;
     }
 
     #sidebar nav ul li {
@@ -85,64 +81,69 @@
       color: #374151;
       text-decoration: none;
       font-weight: 600;
-      transition: 0.3s ease;
-      white-space: nowrap;
+      transition: 0.3s;
     }
 
     #sidebar nav ul li a:hover {
       color: #2563eb;
     }
 
-    #sidebar:not(.expanded) nav ul li a span.text-label {
-      display: none;
-    }
-
     .menu-icon {
       margin-right: 1rem;
       font-size: 1.4rem;
-      color: #2563eb;
     }
 
+    #sidebar:not(.expanded) .text-label {
+      display: none;
+    }
+
+    /* Main */
+
     #mainContent {
-      transition: margin-left 0.3s ease;
-      margin-left: 4rem;
+      margin-left: 5rem;
       padding: 1rem;
+      transition: margin-left 0.3s ease;
     }
 
     #sidebar.expanded ~ #mainContent {
-      margin-left: 16rem;
+      margin-left: 17rem;
     }
 
     /* Cards */
 
-    .bg-white {
-      border-radius: 16px;
-      transition: all 0.3s ease;
+    .card {
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: 0.3s ease;
     }
 
-    .bg-white:hover {
+    .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    /* Hero */
+
+    header {
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      border-radius: 25px;
+      color: white;
     }
 
     /* Buttons */
 
-    button {
-      transition: all 0.3s ease;
+    .btn {
+      transition: 0.3s ease;
       font-weight: 600;
     }
 
-    button:hover {
+    .btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(37,99,235,0.2);
+      box-shadow: 0 8px 20px rgba(37,99,235,0.25);
     }
 
-    /* Header */
-
-    header {
-      background: linear-gradient(135deg, #2563eb, #1e40af);
-      border-radius: 20px;
-    }
+    /* Inputs */
 
     input,
     textarea,
@@ -162,19 +163,16 @@
 
 </head>
 
-<body class="bg-gray-50 text-gray-800">
-
-<!-- Sidebar Toggle -->
-
-<button id="sidebarToggle">
-  ❯
-</button>
+<body>
 
 <!-- Sidebar -->
+
+<button id="sidebarToggle">❯</button>
 
 <aside id="sidebar">
 
   <nav>
+
     <ul>
 
       <li>
@@ -206,6 +204,7 @@
       </li>
 
     </ul>
+
   </nav>
 
 </aside>
@@ -216,7 +215,7 @@
 
 <!-- Navbar -->
 
-<nav class="bg-white shadow mb-4 rounded-xl">
+<nav class="bg-white shadow rounded-2xl mb-6">
 
   <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
 
@@ -252,7 +251,7 @@
 
 <!-- Hero Section -->
 
-<header class="text-white text-center py-24 mb-8">
+<header class="text-center py-24 mb-12">
 
   <h2 class="text-5xl font-bold mb-6">
     Welcome to LearnHub
@@ -265,14 +264,14 @@
   <div class="space-x-4">
 
     <a href="#tutorials"
-       class="bg-white text-blue-600 font-bold py-3 px-6 rounded-xl inline-block">
+      class="bg-white text-blue-600 py-3 px-6 rounded-xl inline-block font-bold btn">
 
       Start Learning
 
     </a>
 
     <a href="#projects"
-       class="bg-blue-900 text-white font-bold py-3 px-6 rounded-xl inline-block">
+      class="bg-blue-900 text-white py-3 px-6 rounded-xl inline-block font-bold btn">
 
       Browse Projects
 
@@ -287,36 +286,35 @@
 <section class="max-w-4xl mx-auto mb-16 px-4">
 
   <input type="text"
-         placeholder="Search tutorials or projects..."
-         class="w-full p-4 border border-gray-300 rounded-xl bg-white">
+    placeholder="Search tutorials or projects..."
+    class="w-full p-4 rounded-2xl border border-gray-300 bg-white">
 
 </section>
 
 <!-- Tutorials -->
 
-<section id="tutorials"
-         class="max-w-6xl mx-auto mt-12 px-4">
+<section id="tutorials" class="max-w-6xl mx-auto mb-20 px-4">
 
-  <h3 class="text-3xl font-bold mb-8">
+  <h2 class="text-4xl font-bold mb-8">
     Featured Tutorials
-  </h3>
+  </h2>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-    <div class="bg-white p-6 shadow">
+    <div class="card p-6">
 
-      <h4 class="text-2xl font-bold mb-3">
+      <h3 class="text-2xl font-bold mb-3">
         Java Basics
-      </h4>
+      </h3>
 
-      <p class="text-gray-600">
+      <p class="mb-4">
         Learn the fundamentals of Java programming.
       </p>
 
       <a href="https://www.learnjavaonline.org/"
-         target="_blank">
+        target="_blank">
 
-        <button class="mt-4 bg-blue-600 text-white py-2 px-5 rounded-lg">
+        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg btn">
           Start Tutorial
         </button>
 
@@ -324,20 +322,20 @@
 
     </div>
 
-    <div class="bg-white p-6 shadow">
+    <div class="card p-6">
 
-      <h4 class="text-2xl font-bold mb-3">
+      <h3 class="text-2xl font-bold mb-3">
         Python for Data Science
-      </h4>
+      </h3>
 
-      <p class="text-gray-600">
-        Learn Python and data analysis.
+      <p class="mb-4">
+        Learn Python and explore data analysis.
       </p>
 
       <a href="https://www.kaggle.com/learn/python"
-         target="_blank">
+        target="_blank">
 
-        <button class="mt-4 bg-blue-600 text-white py-2 px-5 rounded-lg">
+        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg btn">
           Start Tutorial
         </button>
 
@@ -345,20 +343,20 @@
 
     </div>
 
-    <div class="bg-white p-6 shadow">
+    <div class="card p-6">
 
-      <h4 class="text-2xl font-bold mb-3">
+      <h3 class="text-2xl font-bold mb-3">
         React JS
-      </h4>
+      </h3>
 
-      <p class="text-gray-600">
-        Build modern interactive web applications.
+      <p class="mb-4">
+        Build modern and interactive web applications.
       </p>
 
       <a href="https://react.dev/"
-         target="_blank">
+        target="_blank">
 
-        <button class="mt-4 bg-blue-600 text-white py-2 px-5 rounded-lg">
+        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg btn">
           Start Tutorial
         </button>
 
@@ -372,29 +370,28 @@
 
 <!-- Projects -->
 
-<section id="projects"
-         class="max-w-6xl mx-auto mt-20 px-4">
+<section id="projects" class="max-w-6xl mx-auto mb-20 px-4">
 
-  <h3 class="text-3xl font-bold mb-8">
+  <h2 class="text-4xl font-bold mb-8">
     Projects
-  </h3>
+  </h2>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-    <div class="bg-white p-6 shadow">
+    <div class="card p-6">
 
-      <h4 class="text-2xl font-bold mb-3">
+      <h3 class="text-2xl font-bold mb-3">
         FreeCodeCamp Projects
-      </h4>
+      </h3>
 
-      <p class="text-gray-600">
-        Hands-on projects for web development.
+      <p class="mb-4">
+        Hands-on projects for web development and programming.
       </p>
 
       <a href="https://www.freecodecamp.org/learn"
-         target="_blank">
+        target="_blank">
 
-        <button class="mt-4 bg-blue-600 text-white py-2 px-5 rounded-lg">
+        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg btn">
           Explore
         </button>
 
@@ -402,20 +399,20 @@
 
     </div>
 
-    <div class="bg-white p-6 shadow">
+    <div class="card p-6">
 
-      <h4 class="text-2xl font-bold mb-3">
+      <h3 class="text-2xl font-bold mb-3">
         GitHub Awesome
-      </h4>
+      </h3>
 
-      <p class="text-gray-600">
-        Discover open-source projects.
+      <p class="mb-4">
+        Discover open-source projects and collections.
       </p>
 
       <a href="https://github.com/sindresorhus/awesome"
-         target="_blank">
+        target="_blank">
 
-        <button class="mt-4 bg-blue-600 text-white py-2 px-5 rounded-lg">
+        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg btn">
           Explore
         </button>
 
@@ -423,20 +420,20 @@
 
     </div>
 
-    <div class="bg-white p-6 shadow">
+    <div class="card p-6">
 
-      <h4 class="text-2xl font-bold mb-3">
+      <h3 class="text-2xl font-bold mb-3">
         The Odin Project
-      </h4>
+      </h3>
 
-      <p class="text-gray-600">
+      <p class="mb-4">
         Build full-stack projects with guidance.
       </p>
 
       <a href="https://www.theodinproject.com/projects"
-         target="_blank">
+        target="_blank">
 
-        <button class="mt-4 bg-blue-600 text-white py-2 px-5 rounded-lg">
+        <button class="bg-blue-600 text-white py-2 px-5 rounded-lg btn">
           Explore
         </button>
 
@@ -450,21 +447,24 @@
 
 <!-- About -->
 
-<section id="about"
-         class="mb-20 max-w-6xl mx-auto mt-20 px-4">
+<section id="about" class="max-w-6xl mx-auto mb-20 px-4">
 
-  <h2 class="text-3xl font-bold mb-6">
+  <h2 class="text-4xl font-bold mb-6">
     About Me
   </h2>
 
-  <div class="bg-white p-8 shadow">
+  <div class="card p-8">
 
-    <p class="mb-4 text-lg">
+    <p class="text-lg mb-4">
+
       Hi! I am <strong>Srija Karedha</strong>, a passionate Computer Science student interested in web development, software development, and data science.
+
     </p>
 
-    <p class="mb-4 text-lg">
+    <p class="text-lg mb-4">
+
       LearnHub is my personal learning platform where I showcase tutorials, projects, technical interests, and learning resources.
+
     </p>
 
     <p class="mb-2">
@@ -472,38 +472,44 @@
     </p>
 
     <p class="mb-2">
+
       <strong>Email:</strong>
 
-      <a href="mailto:srijareddykaredha@gmail.com"
-         class="text-blue-600 underline">
+      <a href="mailto:learnhuub@gmail.com"
+        class="text-blue-600 underline">
 
-        srijareddykaredha@gmail.com
+        learnhuub@gmail.com
 
       </a>
+
     </p>
 
     <p class="mb-2">
+
       <strong>LinkedIn:</strong>
 
       <a href="https://www.linkedin.com/in/srija-karedha-460956295"
-         target="_blank"
-         class="text-blue-600 underline">
+        target="_blank"
+        class="text-blue-600 underline">
 
         linkedin.com/in/srija-karedha-460956295
 
       </a>
+
     </p>
 
     <p class="mb-2">
+
       <strong>GitHub:</strong>
 
       <a href="https://github.com/SrijaKaredha"
-         target="_blank"
-         class="text-blue-600 underline">
+        target="_blank"
+        class="text-blue-600 underline">
 
         github.com/SrijaKaredha
 
       </a>
+
     </p>
 
   </div>
@@ -513,17 +519,19 @@
 <!-- Contact -->
 
 <section id="contact"
-         class="max-w-6xl mx-auto mt-12 px-4 mb-20">
+  class="max-w-6xl mx-auto mb-20 px-4">
 
-  <h2 class="text-3xl font-bold mb-8">
-    Contact & Career Interests
+  <h2 class="text-4xl font-bold mb-8">
+    Contact Form
   </h2>
 
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
-    <div class="bg-white p-8 shadow">
+    <!-- Contact Details -->
 
-      <h3 class="text-2xl font-bold mb-4 text-blue-600">
+    <div class="card p-8">
+
+      <h3 class="text-2xl font-bold mb-6 text-blue-600">
         Website Creator
       </h3>
 
@@ -536,67 +544,81 @@
       </p>
 
       <p class="mb-3">
-        <strong>Email:</strong> srijareddykaredha@gmail.com
+        <strong>Email:</strong> learnhuub@gmail.com
       </p>
 
       <p class="mb-3">
+
+        <strong>LinkedIn:</strong>
+
+        <a href="https://www.linkedin.com/in/srija-karedha-460956295"
+          target="_blank"
+          class="text-blue-600 underline">
+
+          Visit LinkedIn
+
+        </a>
+
+      </p>
+
+      <p>
+
         <strong>GitHub:</strong>
 
         <a href="https://github.com/SrijaKaredha"
-           target="_blank"
-           class="text-blue-600 underline">
+          target="_blank"
+          class="text-blue-600 underline">
 
           github.com/SrijaKaredha
 
         </a>
+
       </p>
 
     </div>
 
-    <form class="bg-white p-8 shadow"
-          onsubmit="alert('Submitted Successfully!'); return false;">
+    <!-- Form -->
 
-      <h3 class="text-2xl font-bold mb-6">
-        Contact Form
-      </h3>
+    <form class="card p-8"
+      onsubmit="alert('Submitted Successfully!'); return false;">
 
-      <div class="mb-4">
+      <div class="mb-5">
 
         <label class="block font-semibold mb-2">
           Full Name
         </label>
 
         <input type="text"
-               class="w-full border border-gray-300 rounded-lg p-3"
-               required>
+          class="w-full border border-gray-300 rounded-lg p-3"
+          required>
 
       </div>
 
-      <div class="mb-4">
+      <div class="mb-5">
 
         <label class="block font-semibold mb-2">
           Email
         </label>
 
         <input type="email"
-               class="w-full border border-gray-300 rounded-lg p-3"
-               required>
+          class="w-full border border-gray-300 rounded-lg p-3"
+          required>
 
       </div>
 
-      <div class="mb-4">
+      <div class="mb-5">
 
         <label class="block font-semibold mb-2">
           Message
         </label>
 
         <textarea rows="4"
-                  class="w-full border border-gray-300 rounded-lg p-3"></textarea>
+          class="w-full border border-gray-300 rounded-lg p-3"></textarea>
 
       </div>
 
       <button type="submit"
-              class="bg-blue-600 text-white py-3 px-6 rounded-lg w-full">
+        class="bg-blue-600 text-white py-3 px-6 rounded-lg w-full btn">
 
         Submit Details
 
@@ -610,13 +632,13 @@
 
 <!-- Footer -->
 
-<footer class="bg-gray-900 text-gray-300 py-10">
+<footer class="bg-gray-900 text-gray-300 py-12 rounded-t-3xl">
 
-  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between">
 
-    <div class="mb-8 md:mb-0">
+    <div>
 
-      <h3 class="text-white text-xl font-bold mb-4">
+      <h3 class="text-white text-2xl font-bold mb-4">
         LearnHub
       </h3>
 
@@ -626,16 +648,16 @@
 
     </div>
 
-    <div>
+    <div class="mt-8 md:mt-0">
 
-      <h3 class="text-white text-lg font-semibold mb-4">
+      <h3 class="text-white text-xl font-semibold mb-4">
         Contact Us
       </h3>
 
       <p>
         Phone:
         <a href="tel:9618767491"
-           class="hover:text-blue-400">
+          class="hover:text-blue-400">
 
           9618767491
 
@@ -644,10 +666,10 @@
 
       <p>
         Email:
-        <a href="mailto:srijareddykaredha@gmail.com"
-           class="hover:text-blue-400">
+        <a href="mailto:learnhuub@gmail.com"
+          class="hover:text-blue-400">
 
-          srijareddykaredha@gmail.com
+          learnhuub@gmail.com
 
         </a>
       </p>
@@ -657,15 +679,17 @@
       </p>
 
       <p>
+
         GitHub:
 
         <a href="https://github.com/SrijaKaredha"
-           target="_blank"
-           class="hover:text-blue-400">
+          target="_blank"
+          class="hover:text-blue-400">
 
           github.com/SrijaKaredha
 
         </a>
+
       </p>
 
       <p>
@@ -680,13 +704,23 @@
 
 </div>
 
+<!-- Script -->
+
 <script>
 
 const sidebar = document.getElementById("sidebar");
 const toggleBtn = document.getElementById("sidebarToggle");
 
 toggleBtn.addEventListener("click", () => {
+
   sidebar.classList.toggle("expanded");
+
+  if (sidebar.classList.contains("expanded")) {
+    toggleBtn.innerHTML = "❮";
+  } else {
+    toggleBtn.innerHTML = "❯";
+  }
+
 });
 
 </script>
